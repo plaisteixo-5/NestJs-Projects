@@ -8,34 +8,32 @@ import {
   Put,
 } from '@nestjs/common';
 import { Customer } from '../models/customer.model';
+import { Result } from '../models/result.model';
 
 @Controller('v1/customers')
 export class CustomerController {
   @Get()
   get() {
-    return 'Return customers';
+    return new Result(null, true, [], null);
   }
 
   @Get(':document')
   getById(@Param('document') document: string) {
-    return 'Customer with document: ' + document;
+    return new Result(null, true, {}, null);
   }
 
   @Post()
   post(@Body() body: Customer) {
-    return 'Create customers';
+    return new Result('Customer updated successfuly!', true, body, null);
   }
 
   @Put(':document')
   put(@Body() body: Customer, @Param('document') document: string) {
-    return {
-      customer: document,
-      data: body,
-    };
+    return new Result('Customer updated successfuly!', true, body, null);
   }
 
   @Delete(':document')
   delete(@Param('document') document: string) {
-    return 'Delete customers';
+    return new Result('Customer deleted successfuly!', true, null, null);
   }
 }
