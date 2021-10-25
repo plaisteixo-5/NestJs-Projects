@@ -3,9 +3,6 @@ import { CreditCard } from './credit-card.model';
 import { Pet } from './pet.model';
 
 export class Customer {
-  /**
-   *
-   */
   constructor(
     public name: string,
     public document: string,
